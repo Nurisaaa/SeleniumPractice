@@ -10,7 +10,7 @@ import java.time.Duration;
 
 public class ChromeWebDriver {
     public static WebDriver loadChromeDriver() {
-//        WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromedriver().setup();
 //        ChromeOptions options = new ChromeOptions();
 //        // options - об]ект для настройки различных параметров и опций в для драйвера хром
 //        options.addArguments("--disable-extensions");// отключить расширения

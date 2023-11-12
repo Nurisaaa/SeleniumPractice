@@ -3,12 +3,10 @@ package org.example;
 import org.example.drivers.Driver;
 import org.example.model.User;
 import org.example.pages.TextBoxPage;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 
 public class App {
-    public static void main( String[] args ) throws InterruptedException {
+    public static void main( String[] args ) {
 
         Driver.getDriver().get("https://demoqa.com/text-box");
         TextBoxPage textBoxPage = new TextBoxPage();
@@ -17,8 +15,7 @@ public class App {
                 "user@gmail.com",
                 "Bishkek",
                 "Bishkek"));
-
-//        WebDriver driver = new ChromeDriver();
+        Driver.closeDriver();
     }
 
 

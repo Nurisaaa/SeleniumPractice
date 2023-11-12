@@ -5,7 +5,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 public class ElementActions {
-//    private final Actions actions = new Actions(Driver.getDriver());
 
     public ElementActions writeText(WebElement webElement,String value){
         webElement.clear();
