@@ -4,28 +4,25 @@ import org.example.config.ConfigReader;
 import org.openqa.selenium.WebDriver;
 
 public class Driver {
-    public Driver() {
+    private Driver(){
+        // Singleton pattern
     }
+    public static WebDriver driver;
+    public static WebDriver getDriver(){
 
-    private static WebDriver webDriver;
-
-    public static WebDriver getDriver() {
-        if (webDriver == null){
-            switch (ConfigReader.getProperty("browser").trim().toLowerCase()){
-                case "chrome" -> webDriver = ChromeWebDriver.getChromeDriver();
-                case "safari" -> webDriver = SafariWebDriver.getSafariWebDriver();
-                default -> throw  new IllegalArgumentException("You provided wrong Driver name");
-            }
+        if (ConfigReader.getProperty("browser").equals("chrome")) {
+            System.out.println(ConfigReader.getProperty("browser"));
+            driver = ChromeWebDriver.loadChromeDriver();
         }
-        return webDriver;
+        return driver;
     }
 
     public static void closeDriver(){
         try {
-            if (webDriver != null){
-                webDriver.close();
-                webDriver.quit();
-                webDriver = null;
+            if (driver != null){
+                driver.close();
+                driver.quit();
+                driver = null;
             }
 
         }catch (Exception e){
